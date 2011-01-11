@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #565;
+  background: #654;
 }
 
 header {
@@ -363,3 +363,5 @@ input.button {
     height: 1%; }
   *:first-child+html .pagination {
     overflow: hidden; }
+
+.welcome     { background: #ccbbaa; color: #000000; border-color: #000000 }
