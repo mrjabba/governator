@@ -1,0 +1,22 @@
+<h1>Application Group Repository</h1>
+<div class="actions">
+  <nav class="round">
+    <ul>
+      <li><%= link_to "New appgroup", "appgroups/new", :class => "action_button round" %></li>
+    </ul>
+  </nav>
+</div>
+
+<%= form_tag appgroups_path, :method => 'get', :remote => true, :id => "appgroups_search" do %>
+  <p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+  </p>
+
+  <div id="appgroups">
+    <%= render 'appgroup' %>
+  </div>
+
+<% end %>
+
+

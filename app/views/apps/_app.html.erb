@@ -1,0 +1,15 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table id="apps_table" class="grid_shaded">
+<tr>
+  <th title="Name"><%= sortable "name", "Name"  %></th>
+</tr>
+<% for app in @apps %>
+<tr>
+  <td><%= link_to "#{app.name}", app %></td>
+</tr>
+<% end %>
+</table>
+<div class="page_info"><%= page_entries_info @apps %></div>
+<%= will_paginate %>

@@ -1,0 +1,15 @@
+<h1>Edit Application</h1>
+
+<%= form_for(@app) do |f| %>
+  <%= render 'shared/error_messages_app', :object => f.object %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", :class => "button round" %>
+    <input type="button" id="cancelappUpdate" value="Cancel" class="button round" />
+  </div>
+<% end %>
+

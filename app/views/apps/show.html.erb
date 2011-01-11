@@ -1,0 +1,23 @@
+
+<h1><%= @app.name %></h1>
+
+<div class="actions">
+  <nav class="round">
+    <ul>
+        <li><%= link_to "Edit", "#{@app.id}/edit", :class => "action_button round"  %></li>
+        <li><%= link_to "Add app", "/apps/new", :class => "action_button round" %></li>
+      <li><%= link_to "All apps", apps_path, :class => "action_button round" %></li>
+    </ul>
+  </nav>
+</div>
+
+
+  <div class="field">
+    <label>Name </label>
+    <span><%= @app.name %> </span>
+  </div>
+
+
+
+
+
