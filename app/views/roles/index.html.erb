@@ -1,0 +1,22 @@
+<h1>Role Repository</h1>
+<div class="actions">
+  <nav class="round">
+    <ul>
+      <li><%= link_to "New role", "roles/new", :class => "action_button round" %></li>
+    </ul>
+  </nav>
+</div>
+
+<%= form_tag roles_path, :method => 'get', :remote => true, :id => "roles_search" do %>
+  <p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+  </p>
+
+  <div id="roles">
+    <%= render 'role' %>
+  </div>
+
+<% end %>
+
+

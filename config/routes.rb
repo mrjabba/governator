@@ -1,11 +1,8 @@
 Governator::Application.routes.draw do
 
-  get "resources/index"
-
-  get "resource/index"
-
   root :to => "home#index"
   resources :resources
+  resources :roles
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

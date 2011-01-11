@@ -1,0 +1,15 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table id="roles_table" class="grid_shaded">
+<tr>
+  <th title="Name"><%= sortable "name", "Name"  %></th>
+</tr>
+<% for role in @roles %>
+<tr>
+  <td><%= link_to "#{role.name}", role %></td>
+</tr>
+<% end %>
+</table>
+<div class="page_info"><%= page_entries_info @roles %></div>
+<%= will_paginate %>
