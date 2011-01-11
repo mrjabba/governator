@@ -1,0 +1,15 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table id="resources_table" class="grid_shaded">
+<tr>
+  <th title="Name"><%= sortable "name", "Name"  %></th>
+</tr>
+<% for resource in @resources %>
+<tr>
+  <td><%= link_to "#{resource.name}", resource %></td>
+</tr>
+<% end %>
+</table>
+<div class="page_info"><%= page_entries_info @resources %></div>
+<%= will_paginate %>
