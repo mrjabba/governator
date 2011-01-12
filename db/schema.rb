@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110111031729) do
+ActiveRecord::Schema.define(:version => 20110112005122) do
 
   create_table "appgroups", :force => true do |t|
     t.string   "name"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(:version => 20110111031729) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "appgroup_id"
   end
+
+  add_index "apps", ["appgroup_id"], :name => "index_apps_on_appgroup_id"
 
   create_table "resources", :force => true do |t|
     t.string   "name"

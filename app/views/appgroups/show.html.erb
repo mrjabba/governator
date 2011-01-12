@@ -1,21 +1,37 @@
 
-<h1><%= @appgroup.name %></h1>
+<h1>Application Group: <%= @appgroup.name %></h1>
 
 <div class="actions">
   <nav class="round">
     <ul>
         <li><%= link_to "Edit", "#{@appgroup.id}/edit", :class => "action_button round"  %></li>
-        <li><%= link_to "Add appgroup", "/appgroups/new", :class => "action_button round" %></li>
-      <li><%= link_to "All appgroups", appgroups_path, :class => "action_button round" %></li>
+        <li><%= link_to "All App Groups", appgroups_path, :class => "action_button round" %></li>
+        <li><%= link_to "New App", "/apps/new?appgroup_id=#{@appgroup.id}", :class => "action_button round" %></li>
     </ul>
   </nav>
 </div>
 
-
   <div class="field">
-    <label>Name </label>
-    <span><%= @appgroup.name %> </span>
+    <label>Description</label>
+    <span><%= @appgroup.description %> </span>
   </div>
+
+<h3>Applications</h3>
+
+<% unless @appgroup.apps.empty? %>
+
+  <table id="apps_table" class="grid_shaded">
+  <tr>
+  <th title="Name">Name</th>
+  </tr>
+  <td>
+  <% for app in @appgroup.apps %>
+  <tr>
+    <td><%= link_to "#{app.name}", app %></td>
+  </tr>
+  <% end %>
+  </table>
+<% end %>
 
 
 

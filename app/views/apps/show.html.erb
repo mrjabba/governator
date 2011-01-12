@@ -1,16 +1,14 @@
 
-<h1><%= @app.name %></h1>
+<h1><%= link_to "App Groups", appgroups_path %>: <%= link_to "#{@app.appgroup.name}", "#{appgroups_path}/#{@app.appgroup.id}", %></h1>
+<h1>App: <%= @app.name %></h1>
 
 <div class="actions">
   <nav class="round">
     <ul>
         <li><%= link_to "Edit", "#{@app.id}/edit", :class => "action_button round"  %></li>
-        <li><%= link_to "Add app", "/apps/new", :class => "action_button round" %></li>
-      <li><%= link_to "All apps", apps_path, :class => "action_button round" %></li>
     </ul>
   </nav>
 </div>
-
 
   <div class="field">
     <label>Name </label>

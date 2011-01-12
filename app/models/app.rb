@@ -1,5 +1,7 @@
 class App < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :appgroup_id
+
+  belongs_to :appgroup
   
     validates :name, :presence => true,
                   :length   => { :maximum => 255 }

@@ -7,6 +7,8 @@
     <%= f.text_field :name %>
   </div>
 
+  <%= f.hidden_field :appgroup_id %>
+
 <div class="actions">
     <%= f.submit "Create", :class => "button round" %>
     <input type="button" id="cancelappNew" value="Cancel" class="button round" />

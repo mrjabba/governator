@@ -28,8 +28,10 @@ class AppsController < ApplicationController
   end
   
   def new
-    @title = "New App"
+    @title = "New App"    
+    @appgroup = Appgroup.find(params[:appgroup_id])
     @app = App.new
+    @app.appgroup = @appgroup
   end
   
   def create

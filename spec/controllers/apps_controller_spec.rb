@@ -2,11 +2,10 @@ require 'spec_helper'
 
 describe AppsController do
 
-  describe "GET 'index'" do
-    it "should be successful" do
-      get 'index'
-      response.should be_success
-    end
+  describe "GET 'new'" do
+    it "should be a restful controller"
   end
+  
+
 
 end
