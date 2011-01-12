@@ -6,6 +6,8 @@ describe App do
     @attr = { :name => "my app" } 
   end
 
+  it "remove search from this model?"
+
   it "should allow much larger app column size"
   
   it "should create a new instance given valid attributes" do

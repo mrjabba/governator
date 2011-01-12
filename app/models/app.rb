@@ -2,6 +2,7 @@ class App < ActiveRecord::Base
   attr_accessible :name, :appgroup_id
 
   belongs_to :appgroup
+  has_many :resources
   
     validates :name, :presence => true,
                   :length   => { :maximum => 255 }
