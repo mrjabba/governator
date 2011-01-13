@@ -29,7 +29,9 @@ class ResourcesController < ApplicationController
   
   def new
     @title = "New Resource"
+    @app = App.find(params[:app_id])
     @resource = Resource.new
+    @resource.app = @app
   end
   
   def create
