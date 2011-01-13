@@ -4,10 +4,12 @@
 <table id="resources_table" class="grid_shaded">
 <tr>
   <th title="Name"><%= sortable "name", "Name"  %></th>
+  <th title="App">App</th>
 </tr>
 <% for resource in @resources %>
 <tr>
   <td><%= link_to "#{resource.name}", resource %></td>
+  <td><%= resource.app.name %></td>
 </tr>
 <% end %>
 </table>
