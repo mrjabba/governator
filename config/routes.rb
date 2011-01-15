@@ -1,11 +1,14 @@
 Governator::Application.routes.draw do
 
 
+
   root :to => "home#index"
   resources :resources
   resources :roles
   resources :apps
   resources :appgroups
+  resources :groups
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

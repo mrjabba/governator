@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110115000108) do
+ActiveRecord::Schema.define(:version => 20110115213148) do
 
   create_table "appgroups", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20110115000108) do
   end
 
   add_index "apps", ["appgroup_id"], :name => "index_apps_on_appgroup_id"
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "resources", :force => true do |t|
     t.string   "name"
@@ -47,5 +54,14 @@ ActiveRecord::Schema.define(:version => 20110115000108) do
   end
 
   add_index "roles", ["app_id"], :name => "index_roles_on_app_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

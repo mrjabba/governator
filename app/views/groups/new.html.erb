@@ -1,0 +1,15 @@
+<h1>New Group</h1>
+
+<%= form_for(@group) do |f| %>
+  <%= render 'shared/error_messages_group', :object => f.object %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+<div class="actions">
+    <%= f.submit "Create", :class => "button round" %>
+    <input type="button" id="cancelgroupNew" value="Cancel" class="button round" />
+  </div>
+<% end %>
+

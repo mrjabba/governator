@@ -1,0 +1,15 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table id="groups_table" class="grid_shaded">
+<tr>
+  <th title="Name"><%= sortable "name", "Name"  %></th>
+</tr>
+<% for group in @groups %>
+<tr>
+  <td><%= link_to "#{group.name}", group %></td>
+</tr>
+<% end %>
+</table>
+<div class="page_info"><%= page_entries_info @groups %></div>
+<%= will_paginate %>
