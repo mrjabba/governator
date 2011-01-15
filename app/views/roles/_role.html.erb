@@ -4,10 +4,12 @@
 <table id="roles_table" class="grid_shaded">
 <tr>
   <th title="Name"><%= sortable "name", "Name"  %></th>
+  <th title="App">App</th>
 </tr>
 <% for role in @roles %>
 <tr>
   <td><%= link_to "#{role.name}", role %></td>
+  <td><%= role.app.name %></td>
 </tr>
 <% end %>
 </table>

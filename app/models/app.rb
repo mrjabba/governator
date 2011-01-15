@@ -3,6 +3,7 @@ class App < ActiveRecord::Base
 
   belongs_to :appgroup
   has_many :resources
+  has_many :roles
   
     validates :name, :presence => true,
                   :length   => { :maximum => 255 }

@@ -1,5 +1,7 @@
 class Role < ActiveRecord::Base
-  attr_accessible :name, :description
+  attr_accessible :name, :description, :app_id
+
+  belongs_to :app
   
     validates :name, :presence => true,
                   :length   => { :maximum => 255 }

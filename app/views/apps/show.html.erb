@@ -7,6 +7,7 @@
     <ul>
         <li><%= link_to "Edit", "#{@app.id}/edit", :class => "action_button round"  %></li>
         <li><%= link_to "Add resource", "/resources/new?app_id=#{@app.id}", :class => "action_button round" %></li>
+        <li><%= link_to "Add role", "/roles/new?app_id=#{@app.id}", :class => "action_button round" %></li>
     </ul>
   </nav>
 </div>
@@ -34,6 +35,23 @@
   </table>
 <% end %>
 
+
+<h3>Roles</h3>
+
+<% unless @app.roles.empty? %>
+
+  <table id="roles_table" class="grid_shaded">
+  <tr>
+  <th title="Name">Name</th>
+  </tr>
+  <td>
+  <% for role in @app.roles %>
+  <tr>
+    <td><%= link_to "#{role.name}", role %></td>
+  </tr>
+  <% end %>
+  </table>
+<% end %>
 
 
 

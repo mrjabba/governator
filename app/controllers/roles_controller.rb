@@ -26,10 +26,12 @@ class RolesController < ApplicationController
       render 'edit'
     end    
   end
-  
+
   def new
     @title = "New Role"
+    @app = App.find(params[:app_id])
     @role = Role.new
+    @role.app = @app
   end
   
   def create
