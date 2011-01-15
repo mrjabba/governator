@@ -8,7 +8,19 @@ describe AppsController do
   end
 
   describe "GET 'new'" do
+
+    before(:each) do
+      @appgroup = Factory(:appgroup)
+    end
+
     it "should be a restful controller"
+
+    it "should have the right title" do
+      get 'new', :appgroup_id => @appgroup.id
+
+      response.should be_success
+      response.should have_selector("title", :content => "New App")
+    end
   end
 
   describe "PUT 'update'" do

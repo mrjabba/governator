@@ -1,9 +1,10 @@
 Factory.define :appgroup do |appgroup|
+  appgroup.id        1
   appgroup.name                  "group A"
 end
 
 Factory.define :app do |app|
-  app.id        1
+  app.id        2
   app.name                  "app A"
   app.appgroup { |appgroup|  appgroup.association(:appgroup) }
 end
