@@ -15,3 +15,21 @@
     <span><%= @group.description %> </span>
   </div>
 
+<h3>Users</h3>
+
+<% unless @group.memberships.empty? %>
+
+  <table id="users_table" class="grid_shaded">
+  <tr>
+  <th title="Username">Username</th>
+  </tr>
+  <td>
+  <% for member in @group.memberships %>
+  <tr>
+    <td><%= link_to "#{member.user.username}", member.user %></td>
+  </tr>
+  <% end %>
+  </table>
+<% end %>
+
+

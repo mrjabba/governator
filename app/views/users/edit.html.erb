@@ -1,0 +1,23 @@
+<h1>Edit User</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages_user', :object => f.object %>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", :class => "button round" %>
+    <input type="button" id="canceluserUpdate" value="Cancel" class="button round" />
+  </div>
+<% end %>
+

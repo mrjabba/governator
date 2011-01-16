@@ -19,3 +19,12 @@ Factory.define :role do |role|
   role.description                  "role A description"
   role.app { |app|  app.association(:app) }
 end
+
+Factory.define :group do |group|
+  group.name                  "group A"
+end
+
+#TODO add memberships and relate..
+Factory.define :user do |user|
+  user.username                  "someuser"
+end
