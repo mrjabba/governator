@@ -1,5 +1,5 @@
 
-<h1><%= link_to "Apps", appgroups_path %>: <%= link_to "#{@role.app.name}", "#{apps_path}/#{@role.app.id}", %></h1>
+<h1><%= link_to "Apps", appgroups_path %>: <%= link_to "#{@role.app.name}", app_path(@role.app), %></h1>
 
 <h1><%= @role.name %></h1>
 

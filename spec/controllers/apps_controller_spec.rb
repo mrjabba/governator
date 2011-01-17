@@ -7,13 +7,12 @@ describe AppsController do
     it "bring back apps view"
   end
 
+
   describe "GET 'new'" do
 
     before(:each) do
       @appgroup = Factory(:appgroup)
     end
-
-    it "should be a restful controller"
 
     it "should have the right title" do
       get 'new', :appgroup_id => @appgroup.id
@@ -22,6 +21,7 @@ describe AppsController do
       response.should have_selector("title", :content => "New App")
     end
   end
+
 
   describe "PUT 'update'" do
     before(:each) do
@@ -76,22 +76,23 @@ describe AppsController do
       describe "failure" do
 
         before(:each) do
-         @attr = { :name => "" } 
+          @appgroup = Factory(:appgroup)
+          @attr = { :name => "" } 
         end
 
         it "should not create an app" do
           lambda do
-            post :create, :app => @attr
+            post :create, :appgroup_id => @appgroup.id, :app => @attr
           end.should_not change(App, :count)
         end
 
         it "should have the right title" do
-          post :create, :app => @attr
+          post :create, :appgroup_id => @appgroup.id, :app => @attr
           response.should have_selector("title", :content => "New Application")
         end
 
         it "should render the 'new' page" do
-          post :create, :app => @attr
+          post :create, :appgroup_id => @appgroup.id, :app => @attr
           response.should render_template('new')
         end   
 
@@ -100,30 +101,29 @@ describe AppsController do
       describe "success" do
 
         before(:each) do
+         @appgroup = Factory(:appgroup)
          @attr = { :name => "my app" } 
         end
 
         it "should create an app" do
           lambda do
-            post :create, :app => @attr
-          end.should change(App, :count).by(1)
+            post :create, :appgroup_id => @appgroup.id, :app => @attr
+           end.should change(App, :count).by(1)
         end
 
         it "should redirect to the app show page" do
-          post :create, :app => @attr
+          post :create, :appgroup_id => @appgroup.id, :app => @attr
           response.should redirect_to(app_path(assigns(:app)))
         end   
         
         it "should have a flash message" do
-          post :create, :app => @attr
+          post :create, :appgroup_id => @appgroup.id, :app => @attr
           flash[:success].should =~ /Application created successfully/
         end
 
       end
 
   end
-
-  
   
   describe "GET 'edit'" do
     
@@ -171,8 +171,5 @@ describe AppsController do
     end
       
   end
-  
-  
-
 
 end

@@ -1,13 +1,12 @@
 <h1>New Application</h1>
 
-<%= form_for(@app) do |f| %>
+<%= form_for [@appgroup, @app] do |f| %>
   <%= render 'shared/error_messages_app', :object => f.object %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
 
-  <%= f.hidden_field :appgroup_id %>
 
 <div class="actions">
     <%= f.submit "Create", :class => "button round" %>

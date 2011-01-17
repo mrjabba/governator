@@ -35,7 +35,8 @@ class AppsController < ApplicationController
   end
   
   def create
-    @app = App.new(params[:app])
+    @appgroup = Appgroup.find(params[:appgroup_id])
+    @app = @appgroup.apps.build(params[:app])
     if @app.save
       flash[:success] = "Application created successfully!"
       redirect_to @app

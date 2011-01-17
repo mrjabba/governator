@@ -1,12 +1,13 @@
 Governator::Application.routes.draw do
 
-
-
   root :to => "home#index"
+
+  resources :appgroups do
+    resources :apps, :shallow => true
+  end
+
   resources :resources
   resources :roles
-  resources :apps
-  resources :appgroups
   resources :groups
   resources :users
 
