@@ -4,8 +4,7 @@
   <%= render 'shared/error_messages_membership', :object => f.object %>
   <div class="field">
     <%= f.label :user %><br />
-    <%= f.select :user_id, User.not_in_group(@membership.group_id)
-          .collect { |t| [ "(#{t.username}) #{t.first_name} #{t.last_name} ", t.id ] } %>
+    <%= f.select :user_id, User.not_in_group(@membership.group_id).collect { |t| [ "(#{t.username}) #{t.first_name} #{t.last_name} ", t.id ] } %>
 
     <%= f.hidden_field :group_id %>
   </div>
