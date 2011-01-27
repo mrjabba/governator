@@ -6,6 +6,7 @@
     <ul>
         <li><%= link_to "Edit", "#{@group.id}/edit", :class => "action_button round"  %></li>
         <li><%= link_to "All Groups", groups_path, :class => "action_button round" %></li>
+        <li><%= link_to "Add User", new_membership_path + "?group_id=#{@group.id}", :class => "action_button round"  %></li>
     </ul>
   </nav>
 </div>
@@ -17,8 +18,10 @@
 
 <h3>Users</h3>
 
-<% unless @group.memberships.empty? %>
+<% if @group.memberships.empty? %>
+<div>This group has no users.</div>
 
+<% else %>
   <table id="users_table" class="grid_shaded">
   <tr>
   <th title="Username">Username</th>
@@ -31,5 +34,4 @@
   <% end %>
   </table>
 <% end %>
-
 

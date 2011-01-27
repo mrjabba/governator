@@ -1,9 +1,14 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :first_name, :last_name
 
-#  has_and_belongs_to_many :groups
   has_many :memberships
   has_many :groups, :through => :memberships
+
+  scope :not_in_group, lambda { |group|  
+      join_clause = User.send(:sanitize_sql_array, 
+        ["LEFT OUTER JOIN memberships ON memberships.user_id = users.id WHERE memberships.group_id is not ?", group ])  
+        User.select("distinct(users.id), users.*").joins(join_clause)
+  }
  
     validates :username, :presence => true,
                   :length   => { :maximum => 255 }

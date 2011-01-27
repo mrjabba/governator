@@ -8,6 +8,8 @@ describe User do
 
   it "should allow much larger username column size"
   
+  it "should verify the scope :not_in_group works"
+  
   it "should create a new instance given valid attributes" do
     User.create!(@attr)
   end
