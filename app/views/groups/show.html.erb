@@ -30,6 +30,12 @@
   <% for member in @group.memberships %>
   <tr>
     <td><%= link_to "#{member.user.username}", member.user %></td>
+    <td>
+    <%= link_to "Remove", member, :method => :delete,
+                                     :confirm => "Remove from this group?",
+                                     :title => "Remove",
+                                     :class => "action_button_nar round" %>
+    </td>
   </tr>
   <% end %>
   </table>

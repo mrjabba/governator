@@ -75,5 +75,31 @@ describe MembershipsController do
       end
 
   end
+
+  describe "DELETE 'destroy'" do
+    before(:each) do
+      @user = Factory(:user)
+      @group = Factory(:group)
+      #todo need membership factory
+      @membership = Membership.create!(:group_id => @group.id, :user_id => @user.id)
+   end
+    
+    describe "success" do
+
+      it "should destroy the membership" do
+        lambda do 
+          delete :destroy, :id => @membership
+        end.should change(Membership, :count).by(-1)
+      end
+
+      it "should redirect to the groups show page" do
+        delete :destroy, :id => @membership
+        response.should redirect_to(@membership.group)
+      end
+
+    end
+
+  end  
+
   
 end

@@ -17,4 +17,10 @@ class MembershipsController < ApplicationController
     end
   end    
 
+  def destroy
+    @membership = Membership.find(params[:id])
+    @membership.destroy
+    redirect_to @membership.group
+  end
+
 end
