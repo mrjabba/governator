@@ -5,8 +5,6 @@ describe Group do
   before(:each) do
     @attr = { :name => "mygroup" } 
   end
-
-  it "should allow much larger name column size"
   
   it "should create a new instance given valid attributes" do
     Group.create!(@attr)

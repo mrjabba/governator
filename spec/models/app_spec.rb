@@ -7,8 +7,6 @@ describe App do
   end
 
   it "remove search from this model?"
-
-  it "should allow much larger app column size"
   
   it "should create a new instance given valid attributes" do
     App.create!(@attr)

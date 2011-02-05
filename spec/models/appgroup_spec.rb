@@ -5,8 +5,6 @@ describe Appgroup do
   before(:each) do
     @attr = { :name => "my appgroup" } 
   end
-
-  it "should allow much larger appgroup column size"
   
   it "should create a new instance given valid attributes" do
     Appgroup.create!(@attr)
