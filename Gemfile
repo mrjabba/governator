@@ -13,7 +13,7 @@ gem 'jquery-rails', '>= 0.2.6'
 #gem 'devise'
 #gem 'role_model'
 #gem 'cancan'
-
+gem 'validates_lengths_from_database'
 
 group :development do
 	gem 'rspec-rails', '2.1.0'

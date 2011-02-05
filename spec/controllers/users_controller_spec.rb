@@ -15,8 +15,6 @@ describe UsersController do
     before(:each) do
     end
 
-    it "should be a restful controller"
-
     it "should have the right title" do
       get 'new'
 

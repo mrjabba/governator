@@ -1,13 +1,12 @@
 class App < ActiveRecord::Base
   attr_accessible :name, :appgroup_id
+  validates_lengths_from_database
 
   belongs_to :appgroup
   has_many :resources
   has_many :roles
-  
-    validates :name, :presence => true,
-                  :length   => { :maximum => 255 }
 
+  validates :name, :presence => true
 
   def self.search(search)
     if search

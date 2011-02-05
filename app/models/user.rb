@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :first_name, :last_name
+  validates_lengths_from_database
+
+#todo --> read implement
+# http://codecolossus.com/2011/01/01/why-you-should-always-validate-db-maximum-lengths-and-how-to-do-so-easily/
 
   has_many :memberships
   has_many :groups, :through => :memberships
@@ -11,7 +15,7 @@ class User < ActiveRecord::Base
   }
  
     validates :username, :presence => true,
-                  :length   => { :maximum => 255 }
+                  :length   => { :maximum => 200 }
 
 
   def self.search(search)

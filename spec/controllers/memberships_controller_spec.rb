@@ -9,8 +9,6 @@ describe MembershipsController do
       @group = Factory(:group)
     end
 
-    it "should be a restful controller"
-
     it "should have the right title" do
       get :new, :group_id => @group
 

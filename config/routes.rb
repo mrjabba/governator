@@ -12,6 +12,7 @@ Governator::Application.routes.draw do
   resources :users
   resources :memberships
 
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
