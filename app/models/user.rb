@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :first_name, :last_name
+  attr_accessible :username, :first_name, :last_name, :appgroup_id
   validates_lengths_from_database
   
   has_many :memberships
   has_many :groups, :through => :memberships
+  belongs_to :appgroup
 
   scope :not_in_group, lambda { |group|  
       join_clause = User.send(:sanitize_sql_array, 

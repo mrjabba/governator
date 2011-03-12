@@ -3,6 +3,7 @@ class Resource < ActiveRecord::Base
   validates_lengths_from_database
 
   belongs_to :app
+#  has_many :decisions
   
   validates :name, :presence => true
 

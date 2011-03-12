@@ -4,6 +4,8 @@ Governator::Application.routes.draw do
 
   resources :appgroups do
     resources :apps, :shallow => true
+    resources :groups, :shallow => true
+    resources :users, :shallow => true
   end
 
   resources :resources

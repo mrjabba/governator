@@ -29,11 +29,14 @@ class GroupsController < ApplicationController
   
   def new
     @title = "New Group"    
+    @appgroup = Appgroup.find(params[:appgroup_id])
     @group = Group.new
+    @group.appgroup = @appgroup
   end
   
   def create
-    @group = Group.new(params[:group])
+    @appgroup = Appgroup.find(params[:appgroup_id])
+    @group = @appgroup.groups.build(params[:group])
     if @group.save
       flash[:success] = "Group created successfully!"
       redirect_to @group

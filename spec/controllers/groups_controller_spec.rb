@@ -13,10 +13,11 @@ describe GroupsController do
   describe "GET 'new'" do
 
     before(:each) do
+      @appgroup = Factory(:appgroup)
     end
 
     it "should have the right title" do
-      get 'new'
+      get 'new', :appgroup_id => @appgroup.id
 
       response.should be_success
       response.should have_selector("title", :content => "New Group")
@@ -75,22 +76,23 @@ describe GroupsController do
       describe "failure" do
 
         before(:each) do
-         @attr = { :name => "" } 
+          @appgroup = Factory(:appgroup)
+          @attr = { :name => "" } 
         end
 
         it "should not create a group" do
           lambda do
-            post :create, :group => @attr
+            post :create, :appgroup_id => @appgroup.id, :group => @attr
           end.should_not change(Group, :count)
         end
 
         it "should have the right title" do
-          post :create, :group => @attr
+          post :create, :appgroup_id => @appgroup.id, :group => @attr
           response.should have_selector("title", :content => "New Group")
         end
 
         it "should render the 'new' page" do
-          post :create, :group => @attr
+          post :create, :appgroup_id => @appgroup.id, :group => @attr
           response.should render_template('new')
         end   
 
@@ -99,22 +101,23 @@ describe GroupsController do
       describe "success" do
 
         before(:each) do
+         @appgroup = Factory(:appgroup)
          @attr = { :name => "my group" } 
         end
 
         it "should create a group" do
           lambda do
-            post :create, :group => @attr
+            post :create, :appgroup_id => @appgroup.id, :group => @attr
           end.should change(Group, :count).by(1)
         end
 
         it "should redirect to the group show page" do
-          post :create, :group => @attr
+          post :create, :appgroup_id => @appgroup.id, :group => @attr
           response.should redirect_to(group_path(assigns(:group)))
         end   
         
         it "should have a flash message" do
-          post :create, :group => @attr
+          post :create, :appgroup_id => @appgroup.id, :group => @attr
           flash[:success].should =~ /Group created successfully/
         end
 

@@ -29,11 +29,14 @@ class UsersController < ApplicationController
   
   def new
     @title = "New User"    
+    @appgroup = Appgroup.find(params[:appgroup_id])
     @user = User.new
+    @user.appgroup = @appgroup
   end
   
   def create
-    @user = User.new(params[:user])
+    @appgroup = Appgroup.find(params[:appgroup_id])
+    @user = @appgroup.users.build(params[:user])
     if @user.save
       flash[:success] = "User created successfully!"
       redirect_to @user

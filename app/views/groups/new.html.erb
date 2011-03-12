@@ -1,6 +1,6 @@
 <h1>New Group</h1>
 
-<%= form_for(@group) do |f| %>
+<%= form_for [@appgroup, @group] do |f| %>
   <%= render 'shared/error_messages_group', :object => f.object %>
   <div class="field">
     <%= f.label :name %><br />
