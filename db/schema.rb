@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312020109) do
+ActiveRecord::Schema.define(:version => 20110312202434) do
 
   create_table "appgroups", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20110312020109) do
 
   add_index "apps", ["appgroup_id"], :name => "index_apps_on_appgroup_id"
 
+  create_table "entities", :force => true do |t|
+    t.integer  "policy_id"
+    t.boolean  "permit",          :default => false
+    t.integer  "entityable_id"
+    t.string   "entityable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -45,6 +54,12 @@ ActiveRecord::Schema.define(:version => 20110312020109) do
   end
 
   add_index "memberships", ["group_id", "user_id"], :name => "index_memberships_on_group_id_and_user_id"
+
+  create_table "policies", :force => true do |t|
+    t.integer  "app_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "resources", :force => true do |t|
     t.string   "name",       :limit => 2000

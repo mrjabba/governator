@@ -3,6 +3,7 @@ class Role < ActiveRecord::Base
   validates_lengths_from_database
 
   belongs_to :app
+  has_many :entities, :as => :entityable
   
   validates :name, :presence => true
 

@@ -5,6 +5,7 @@ class App < ActiveRecord::Base
   belongs_to :appgroup
   has_many :resources
   has_many :roles
+  has_many :policies
 
   validates :name, :presence => true
 

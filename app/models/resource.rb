@@ -3,8 +3,8 @@ class Resource < ActiveRecord::Base
   validates_lengths_from_database
 
   belongs_to :app
-#  has_many :decisions
-  
+  has_many :entities, :as => :entityable
+ 
   validates :name, :presence => true
 
   def self.search(search)

@@ -2,10 +2,10 @@ class Group < ActiveRecord::Base
   attr_accessible :name, :appgroup_id
   validates_lengths_from_database
 
-#  has_and_belongs_to_many :users
   has_many :memberships
   has_many :users, :through => :memberships
   belongs_to :appgroup
+  has_many :entities, :as => :entityable
 
     validates :name, :presence => true
 

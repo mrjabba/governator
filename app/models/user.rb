@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :groups, :through => :memberships
   belongs_to :appgroup
+  has_many :entities, :as => :entityable
 
   scope :not_in_group, lambda { |group|  
       join_clause = User.send(:sanitize_sql_array, 

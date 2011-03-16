@@ -4,10 +4,20 @@ Governator::Application.routes.draw do
 
   resources :appgroups do
     resources :apps, :shallow => true
-    resources :groups, :shallow => true
-    resources :users, :shallow => true
+#    resources :groups, :shallow => true
+#    resources :users, :shallow => true
+
+    resources :groups do
+      resources :entities, :shallow => true
+    end
+    resources :users do 
+      resources :entities, :shallow => true
+    end
+    
   end
 
+#  resources :entities
+#  resources :policies
   resources :resources
   resources :roles
   resources :groups
