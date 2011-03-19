@@ -1,5 +1,4 @@
-
-<h1>Application Group: <%= @appgroup.name %></h1>
+<h1 class="appgroup">Application Group: <%= @appgroup.name %></h1>
 
 <div class="actions">
   <nav class="round">
@@ -13,12 +12,8 @@
   </nav>
 </div>
 
-  <div class="field">
-    <label>Description</label>
-    <span><%= @appgroup.description %> </span>
-  </div>
 
-<h3>Applications</h3>
+<h1 class="app">Applications</h1>
 
 <% unless @appgroup.apps.empty? %>
 

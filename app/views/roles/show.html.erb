@@ -1,7 +1,5 @@
-
-<h1><%= link_to "Apps", appgroups_path %>: <%= link_to "#{@role.app.name}", app_path(@role.app), %></h1>
-
-<h1><%= @role.name %></h1>
+<h1 class="app"><%= link_to "#{@role.app.name}", app_path(@role.app), %></h1>
+<h1 class="role indent1"><%= @role.name %></h1>
 
 <div class="actions">
   <nav class="round">
@@ -11,11 +9,6 @@
   </nav>
 </div>
 
-
-  <div class="field">
-    <label>Name </label>
-    <span><%= @role.name %> </span>
-  </div>
 
 
 

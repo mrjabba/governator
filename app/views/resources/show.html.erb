@@ -1,6 +1,5 @@
-
-<h1><%= link_to "Apps", appgroups_path %>: <%= link_to "#{@resource.app.name}", app_path(@resource.app.id) %></h1>
-<h1><%= @resource.name %></h1>
+<h1 class="app"><%= link_to "#{@resource.app.name}", app_path(@resource.app.id) %></h1>
+<h1 class="resource indent1"><%= @resource.name %></h1>
 
 <div class="actions">
   <nav class="round">

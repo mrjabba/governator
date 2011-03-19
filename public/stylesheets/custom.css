@@ -25,7 +25,7 @@ section {
 div.top_logo {
   padding: 5px;
   background: #fff;
-  height: 55px;
+  height: 35px;
   width: 325px;
   display: block;
   margin-right: auto;
@@ -35,7 +35,10 @@ div.top_logo div {
   text-align: center;
   font-size: 140%;
   font-weight: bold;
-  padding-top: 15px;
+  padding-top: 5px;
+  background-image: url(/images/gov.png);
+  background-repeat: no-repeat;
+  background-position: left center;
 }
 
 img.top_logo {
@@ -44,9 +47,6 @@ img.top_logo {
   margin-right: 10px;
 }
 
-section h1 {
-  font-size: 200%;
-}
 
 /* Links */
 
@@ -364,4 +364,50 @@ input.button {
   *:first-child+html .pagination {
     overflow: hidden; }
 
+
+.grid_shaded td a {
+  padding-left: 10px;
+}
+
+section h1 {
+  font-size: 150%;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-position: left center;
+}
+
+section .role {
+  background-image: url(/images/role.png);
+}
+
+section .user {
+  background-image: url(/images/user.png);
+}
+
+section .group {
+  background-image: url(/images/group.png);
+}
+
+section .appgroup {
+  background-image: url(/images/appgroup.png);
+}
+
+section .app {
+  background-image: url(/images/app.png);
+}
+
+section .resource {
+  background-image: url(/images/resource.png);
+}
+
+section .home {
+  background-image: url(/images/home.png);
+}
+
+.indent1 {
+  margin-left: 20px;
+}
+
 .welcome     { background: #ccbbaa; color: #000000; border-color: #000000 }
+.attribution     { background: #ccdddd; color: #000000; border-color: #000000 }
+.contact     { background: #ddddaa; color: #000000; border-color: #000000 }
