@@ -7,6 +7,8 @@ class Role < ActiveRecord::Base
   
   validates :name, :presence => true
 
+  delegate :name, :to => :app, :prefix => true 
+
   def self.search(search)
     if search
       where('name LIKE ?', "%#{search}%")

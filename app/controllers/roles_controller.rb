@@ -3,7 +3,7 @@ class RolesController < ApplicationController
 
   def index
     @title = "Role Repository"
-    @roles = Role.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])    
+    @roles = Role.includes([:app]).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])    
    end
 
   def show
