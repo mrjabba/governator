@@ -1,17 +1,17 @@
-<h1 class="appgroup">Application Group: <%= @appgroup.name %></h1>
+<h1 class="appgroup"><%= link_to "App Groups", appgroups_path %></h1>
+
+<h1 class="appgroup indent1">Application Group: <%= @appgroup.name %></h1>
 
 <div class="actions">
   <nav class="round">
     <ul>
         <li><%= link_to "Edit", "#{@appgroup.id}/edit", :class => "action_button round"  %></li>
-        <li><%= link_to "All App Groups", appgroups_path, :class => "action_button round" %></li>
         <li><%= link_to "New App", new_appgroup_app_path(@appgroup), :class => "action_button round" %></li>
         <li><%= link_to "New Group", new_appgroup_group_path(@appgroup), :class => "action_button round" %></li>
         <li><%= link_to "New User", new_appgroup_user_path(@appgroup), :class => "action_button round" %></li>
     </ul>
   </nav>
 </div>
-
 
 <h1 class="app">Applications</h1>
 
@@ -48,6 +48,23 @@
   </table>
 <% end %>
 
+
+<h1 class="user">User</h1>
+
+<% unless @appgroup.users.empty? %>
+
+  <table id="users_table" class="grid_shaded">
+  <tr>
+  <th title="Name">Name</th>
+  </tr>
+  <td>
+  <% for user in @appgroup.users %>
+  <tr>
+    <td><%= link_to "#{user.name}", user_path(user.id) %></td>
+  </tr>
+  <% end %>
+  </table>
+<% end %>
 
 
 

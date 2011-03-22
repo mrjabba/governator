@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  attr_accessible :name, :appgroup_id, :user_tokens 
+  attr_accessible :name, :description, :appgroup_id, :user_tokens 
   attr_reader :user_tokens
   validates_lengths_from_database
 
