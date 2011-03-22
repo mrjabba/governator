@@ -31,6 +31,23 @@
 <% end %>
 
 
+<h1 class="group">Groups</h1>
+
+<% unless @appgroup.groups.empty? %>
+
+  <table id="groups_table" class="grid_shaded">
+  <tr>
+  <th title="Name">Name</th>
+  </tr>
+  <td>
+  <% for group in @appgroup.groups %>
+  <tr>
+    <td><%= link_to "#{group.name}", group_path(group.id) %></td>
+  </tr>
+  <% end %>
+  </table>
+<% end %>
+
 
 
 

@@ -7,6 +7,11 @@
     <%= f.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= f.label :user_tokens, "Users" %><br/>
+    <%= f.text_field :user_tokens, "data-pre" => @group.users.map(&:fields).to_json %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update", :class => "button round" %>
     <input type="button" id="cancelgroupUpdate" value="Cancel" class="button round" />

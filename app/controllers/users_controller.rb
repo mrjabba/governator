@@ -4,6 +4,19 @@ class UsersController < ApplicationController
   def index
     @title = "User Repository"
     @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])    
+    #FIXME how to make this work for both json input param :q and page index search????
+    #FIXME how to make this work for both json input param :q and page index search????
+    #FIXME how to make this work for both json input param :q and page index search????
+    #FIXME need to support either first and last name or an option of one or the other...    
+    #yuk
+    @json_users = User.where("first_name like ?", "%#{params[:q]}%") if params[:q]
+#    TODO combine with not_in_group finder -> @json_users = User.not_in_group(1,params q)
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @json_users.map(&:fields)}
+    end
+    
    end
 
   def show

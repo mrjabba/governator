@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :first_name, :last_name, :appgroup_id
+  attr_accessible :username, :first_name, :last_name, :appgroup_id, :name, :fields
   validates_lengths_from_database
   
   has_many :memberships
@@ -17,6 +17,17 @@ class User < ActiveRecord::Base
                   :length   => { :maximum => 200 }
 
 
+  def fields
+    attrs = {}
+    attrs[:id] = id
+    attrs[:name] = name
+    attrs
+  end
+  
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end  
+  
   def self.search(search)
     if search
       where('username LIKE ?', "%#{search}%")
