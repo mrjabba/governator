@@ -231,7 +231,6 @@ div.field, div.actions {
   list-style: square;
 }
 
-
 ul.users {
   margin-top: 1em;
 }
@@ -240,13 +239,8 @@ ul.users {
   list-style: none;
 }
 
-#league_table td {
-color:#3F3F3F;
-font-family:Helvetica,Arial,sans-serif;
-font-size:12px;
-}
-
 a.action_button {
+
   margin-left: auto;
   margin-right: auto;
   display: block;
