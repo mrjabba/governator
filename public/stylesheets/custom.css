@@ -404,6 +404,10 @@ section .home {
   background-image: url(/images/home.png);
 }
 
+section .about {
+  background-image: url(/images/help.png);
+}
+
 .indent1 {
   margin-left: 20px;
 }

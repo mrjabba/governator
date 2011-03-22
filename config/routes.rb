@@ -1,6 +1,7 @@
 Governator::Application.routes.draw do
 
   root :to => "home#index"
+  match '/about',   :to => 'pages#about'
 
   resources :appgroups do
     resources :apps, :shallow => true

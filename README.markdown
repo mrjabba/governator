@@ -1,2 +1,4 @@
-A platform agnostic entitlement server.
-More to come...
+Governator is an entitlements system. 
+This application is under heavy development. 
+Its aim is to serve as a repository for application security independent of each application's implementation details. 
+When properly configured, Governator will be able to render decisions on access to resources given user/group/role constraints.
