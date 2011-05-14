@@ -7,6 +7,8 @@ class Appgroup < ActiveRecord::Base
   has_many :users
   
   validates :name, :presence => true
+#  validates :name, :presence => true,
+#                  :uniqueness => { :case_sensitive => false }
 
   def self.search(search)
     if search

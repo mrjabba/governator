@@ -7,7 +7,11 @@ class App < ActiveRecord::Base
   has_many :roles
   has_many :policies
 
+  #remove the unique constraint for this i a bit..
   validates :name, :presence => true
+#  validates :name, :presence => true,
+#                  :uniqueness => { :case_sensitive => false }
+
 
   def self.search(search)
     if search
